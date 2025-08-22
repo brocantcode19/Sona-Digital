@@ -11,7 +11,7 @@ body {
   text-align: center;
 
   /* Background settings */
-  background-image: url('backimg.png');
+  background-image: url('backimg.webp');
   background-size: cover;         /* make it fit screen */
   background-repeat: no-repeat;   /* no tiling */
   background-position: center top;/* center horizontally, align top */
