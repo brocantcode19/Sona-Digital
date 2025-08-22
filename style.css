@@ -1,0 +1,146 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 250px;
+}
+
+body {
+  font-family: 'Reospec', sans-serif;
+  margin: 0;
+  padding-top: 70px; /* offset for fixed navbar */
+  color: white;
+  text-align: center;
+
+  /* Background settings */
+  background-image: url('backimg.png');
+  background-size: cover;         /* make it fit screen */
+  background-repeat: no-repeat;   /* no tiling */
+  background-position: center top;/* center horizontally, align top */
+  background-attachment: scroll;  /* image moves with content */
+}
+
+header {
+  padding: 0px 0px;
+  background: rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  display: flex;               
+  justify-content: space-between; /* keeps logo left, nav right */
+  align-items: center;            /* vertical centering */
+}
+
+nav ul.nav-right {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;  /* keeps them aligned to the right */
+  align-items: center;
+  gap: 60px; /* 🔥 space between About, Services, Contact */
+  margin: 10px;
+  padding: 0;
+}
+
+nav ul.nav-right li {
+  margin-right: 90px; /* remove old margin, gap handles spacing now */
+}
+
+nav ul.nav-right li a {
+  color: white;            /* default color */
+  text-decoration: none;   /* removes underline */
+  font-size: 16px;
+  transition: color 0.3s ease-in-out;
+}
+
+nav ul.nav-right li a:hover {
+  color: #008cdd;
+}
+
+/* Hero section - text bottom-left */
+.hero {
+  display: flex;
+  justify-content: flex-start;   /* content on the left */
+  align-items: first baseline; 
+  margin-top: 200px;        /* push content to bottom */
+  padding: 0 140px 140px;          /* bottom padding for spacing */
+  min-height: 100vh;
+  position: relative;
+  text-align: left;
+  
+}
+
+.hero h1 { 
+  font-family: "Inter", sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero span {
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.cta {
+  background: linear-gradient(180deg, #084b72, #3bd1ef); /* 🔽 gradient */
+  color: white;
+  border: none;
+
+  /* 🔽 SIZE */
+  padding: 4px 20px;   /* top-bottom, left-right */
+  font-size: 18px;      /* text size */
+
+  /* 🔽 SHAPE (pill) */
+  border-radius: 999px; /* makes pill-shaped no matter the width */
+
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease-in-out;
+}
+
+.cta:hover {
+  background: #0070b8;
+  transform: translateY(-2px); /* subtle lift effect */
+}
+
+
+section {
+  height: 100vh; /* just for testing scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Default (desktop) - your current code */
+nav ul.nav-right {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile (when screen ≤ 768px) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;   /* stack logo and nav */
+    align-items: center;      /* center everything */
+  }
+
+  nav ul.nav-right {
+    flex-direction: column;   /* stack links vertically */
+    gap: 15px;                /* spacing between them */
+    margin-top: 10px;         /* push below logo */
+  }
+
+  nav ul.nav-right li a {
+    font-size: 18px;          /* slightly bigger for touch */
+  }
+}
+
