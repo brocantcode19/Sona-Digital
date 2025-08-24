@@ -62,7 +62,9 @@ nav ul.nav-right li {
   font-family: 'Reospec', sans-serif; /* use Reospec font */
   font-weight: normal; /* normal weight for Reospec */
   margin-right: 10px; /* remove old margin, gap handles spacing now */
+  margin-right: 50px;
 }
+
 
 nav ul.nav-right li a {
   color: white;            /* default color */
@@ -145,8 +147,9 @@ nav ul.nav-right {
   margin: 0;
   padding: 0;
 }
-
-/* Mobile (when screen ≤ 768px) */
+.burger {
+  display: none; /* hidden on desktop */
+}
 /* Mobile (when screen ≤ 768px) */
 @media (max-width: 768px) {
   header {
@@ -165,7 +168,7 @@ nav ul.nav-right {
 
   .logo img {
     height: 100px;
-    margin-left: 50px;
+    margin-left: 90px;
   }
 
   .hero {
