@@ -54,14 +54,14 @@ nav ul.nav-right {
   justify-content: flex-end;  /* keeps them aligned to the right */
   align-items: center;
   gap: 60px; /* 🔥 space between About, Services, Contact */
-  margin: 10px;
+  margin: 5px;
   padding: 0;
 }
 
 nav ul.nav-right li {
   font-family: 'Reospec', sans-serif; /* use Reospec font */
   font-weight: normal; /* normal weight for Reospec */
-  margin-right: 90px; /* remove old margin, gap handles spacing now */
+  margin-right: 10px; /* remove old margin, gap handles spacing now */
 }
 
 nav ul.nav-right li a {
@@ -147,77 +147,82 @@ nav ul.nav-right {
 }
 
 /* Mobile (when screen ≤ 768px) */
+/* Mobile (when screen ≤ 768px) */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;   /* stack logo and nav */
-    align-items: center;      /* center everything */
+    align-items: center;
   }
 
-  nav ul.nav-right {
-    flex-direction: column;   /* stack links vertically */
-    gap: 15px;                /* spacing between them */
-    margin-top: 10px;         /* push below logo */
+  /* 🔽 Burger Menu (hidden on desktop) */
+  .burger {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    top: 5px;
+    left: 10px;
   }
 
-  nav ul.nav-right li a {
-    font-size: 18px;          /* slightly bigger for touch */
+  .logo img {
+    height: 100px;
+    margin-left: 50px;
   }
-}
 
-/* 🔽 Burger Menu (hidden on desktop) */
-.burger {
-  display: none;              /* hide by default */
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 200px; /* push it slightly inward from the right */
-}
-
-/* 🔽 Mobile Styles */
-@media (max-width: 768px) {
-   .hero {
-    padding: 0 20px 80px;  /* reduce side padding for mobile */
-    margin-top: 120px;     /* lower margin so it fits iPhone screens */
-    justify-content: flex-start; /* still left-aligned */
-    text-align: left;      /* make sure text stays left */
-    align-items: flex-start; /* align content to top-left */
+  .hero {
+    padding: 0 20px 80px;
+    margin-top: 120px;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
   }
 
   .hero h1 {
-    font-size: 36px;  /* smaller heading for mobile */
+    font-size: 36px;
   }
 
   .hero p {
-    font-size: 16px;  /* slightly smaller text */
+    font-size: 16px;
   }
 
-  /* 🔽 Hide menu by default and show on click */
-  nav ul.nav-right {
-    display: none;              /* hide menu by default */
-    flex-direction: column;     /* stack items */
-    position: absolute;         
-    top: 70px;                  /* below header */
-    right: 0;                   /* align right */
-    background: rgba(0,0,0,0.95);
-    width: 200px;
-    padding: 20px;
-    border-radius: 8px 0 0 8px; /* smooth left edge */
-  }
-
-  nav ul.nav-right.active {
-    display: flex;              /* show menu when active */
-  }
-
-  .burger {
+  /* Base state - menu hidden */
+  nav ul.nav-right {   
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8); 
     position: absolute;
-    top: 5px;  
-    left: 10px;                /* align to top */              /* align to right */
-    display: block;             /* show burger only on mobile */
+    top: 60px;
+    left: 10px;               
+    width: fit-content;          /* box fits around links */
+    padding: 10px 15px;          /* just enough padding */
+    border-radius: 12px;         
+    text-align: left;
+    opacity: 0;                  
+    transform: translateX(-20px);
+    pointer-events: none;        
+    transition: opacity 0.3s ease, transform 0.3s ease; 
   }
-  
-  .logo img {
-    height: 120px;               /* slightly smaller logo */
-    margin: 10px 0; 
-               /* vertical margin */
 
+  /* When active - menu visible */
+  nav ul.nav-right.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;         
   }
+
+  /* Staggered animation for links */
+  nav ul.nav-right li {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  nav ul.nav-right.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav ul.nav-right.active li:nth-child(1) { transition-delay: 0.1s; }
+  nav ul.nav-right.active li:nth-child(2) { transition-delay: 0.2s; }
+  nav ul.nav-right.active li:nth-child(3) { transition-delay: 0.3s; }
 }
+
