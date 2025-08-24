@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("form").addEventListener("submit", (event) => {
-        event.preventDefault();
-        alert("Message sent!");
-    });
-});
+const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });

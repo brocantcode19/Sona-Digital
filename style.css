@@ -1,10 +1,27 @@
+/* Inter Medium */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter_18pt-Medium.ttf') format('truetype');
+  font-weight: 500; /* Medium weight */
+  font-style: normal;
+}
+
+/* Reospec */
+@font-face {
+  font-family: 'Reospec';
+  src: url('fonts/Reospec.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html {
   scroll-behavior: smooth;
   scroll-padding: 250px;
 }
 
 body {
-  font-family: 'Reospec', sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding-top: 70px; /* offset for fixed navbar */
   color: white;
@@ -42,6 +59,8 @@ nav ul.nav-right {
 }
 
 nav ul.nav-right li {
+  font-family: 'Reospec', sans-serif; /* use Reospec font */
+  font-weight: normal; /* normal weight for Reospec */
   margin-right: 90px; /* remove old margin, gap handles spacing now */
 }
 
@@ -145,3 +164,60 @@ nav ul.nav-right {
   }
 }
 
+/* 🔽 Burger Menu (hidden on desktop) */
+.burger {
+  display: none;              /* hide by default */
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 200px; /* push it slightly inward from the right */
+}
+
+/* 🔽 Mobile Styles */
+@media (max-width: 768px) {
+   .hero {
+    padding: 0 20px 80px;  /* reduce side padding for mobile */
+    margin-top: 120px;     /* lower margin so it fits iPhone screens */
+    justify-content: flex-start; /* still left-aligned */
+    text-align: left;      /* make sure text stays left */
+    align-items: flex-start; /* align content to top-left */
+  }
+
+  .hero h1 {
+    font-size: 36px;  /* smaller heading for mobile */
+  }
+
+  .hero p {
+    font-size: 16px;  /* slightly smaller text */
+  }
+
+  /* 🔽 Hide menu by default and show on click */
+  nav ul.nav-right {
+    display: none;              /* hide menu by default */
+    flex-direction: column;     /* stack items */
+    position: absolute;         
+    top: 70px;                  /* below header */
+    right: 0;                   /* align right */
+    background: rgba(0,0,0,0.95);
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px 0 0 8px; /* smooth left edge */
+  }
+
+  nav ul.nav-right.active {
+    display: flex;              /* show menu when active */
+  }
+
+  .burger {
+    position: absolute;
+    top: 5px;  
+    left: 10px;                /* align to top */              /* align to right */
+    display: block;             /* show burger only on mobile */
+  }
+  
+  .logo img {
+    height: 120px;               /* slightly smaller logo */
+    margin: 10px 0; 
+               /* vertical margin */
+
+  }
+}
